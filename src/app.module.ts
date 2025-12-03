@@ -61,7 +61,6 @@ import { CronModule } from './feature/cron/cron.module';
         PhotoModule,
         StatisticsModule,
         PaymentModule,
-        CronModule,
     ],
     controllers: [AppController],
     providers: [AppService],
