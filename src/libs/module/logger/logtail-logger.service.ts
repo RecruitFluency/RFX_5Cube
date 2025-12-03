@@ -9,8 +9,9 @@ export class LogtailLoggerService implements LoggerService {
 
     constructor(private readonly configService: ConfigService) {
         const token: string = this.configService.getOrThrow('LOGTAIL_TOKEN');
+        const host: string = this.configService.getOrThrow('LOGTAIL_INGESTING_HOST');
 
-        this.logtail = new Logtail(token);
+        this.logtail = new Logtail(token, { endpoint: `https://${host}` });
     }
 
     error(message: unknown, ...optionalParams: unknown[]): void {
